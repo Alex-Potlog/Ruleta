@@ -50,11 +50,6 @@ public class Tauler {
         } while (i <= 36);
     }
 
-    public Casella[] getCaselles() {
-        return caselles;
-    }
-
-
     public int tirada() {
         return (int) (Math.random() * 36 + 0);
 
@@ -210,7 +205,7 @@ public class Tauler {
                     aux++;
                 } while (quantitat >= player.getMoney() || quantitat <= 0);
                 System.out.println("La bola ha caigut a " + this.getCaselles()[tirada]);
-                if (this.getCaselles()[tirada].getColor().toLowerCase().equals(color)){
+                if (this.getCaselles()[tirada].getColor() == color){
                     System.out.println("Has guanyat " + quantitat*2 + "€");
                     player.setMoney(player.getMoney()+quantitat);
                     System.out.println("Ara tens " + player.getMoney() + "€");
@@ -373,6 +368,10 @@ public class Tauler {
             }
         }
         return dotzena;
+    }
+
+    public Casella[] getCaselles() {
+        return caselles;
     }
 
     @Override
