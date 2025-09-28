@@ -179,16 +179,18 @@ public class Tauler {
                 break;
 
             case 3:
-                String color;
+                Color color;
+                String colorRegistrat;
                 aux = 0;
                 do {
                     if (aux > 0) {
                         System.out.println("Introdueix un color disponible (Red/Black)");
                     }
                     System.out.println("Introdueix a que apostes: Red/Black");
-                    color = n.next().toLowerCase();
+                    colorRegistrat = n.next().toLowerCase();
+                    color = registrarColor(colorRegistrat);
                     aux++;
-                } while (!color.equals("black") && !color.equals("red"));
+                } while (!colorRegistrat.equals("black") && !colorRegistrat.equals("red"));
 
                 aux = 0;
                 do {
@@ -368,6 +370,18 @@ public class Tauler {
             }
         }
         return dotzena;
+    }
+
+    public Color registrarColor(String color){
+        Color colorApostat = null;
+        if (color.equalsIgnoreCase("red")){
+            return Color.VERMELL;
+        }
+        if (color.equalsIgnoreCase("black")){
+            return Color.NEGRE;
+        }
+        return Color.VERD;
+
     }
 
     public Casella[] getCaselles() {
